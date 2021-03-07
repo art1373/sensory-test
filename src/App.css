@@ -1,0 +1,55 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(2, "auto");
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  min-height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+
+  border: 4px saddlebrown dashed;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.tile--set {
+  background: rgb(240, 230, 140);
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+
+  pointer-events: none;
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, "auto");
+  }
+}
