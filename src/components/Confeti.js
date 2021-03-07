@@ -61,13 +61,14 @@ export function start() {
 
     let particle = {};
     let remainingFlakes = 0;
+    //eslint-disable-next-line
     for (var i = 0; i < maxConfettis; i++) {
       particle = particles[i];
 
       particle.tiltAngle += particle.tiltAngleIncremental;
       particle.y += (Math.cos(particle.d) + 3 + particle.r / 2) / 2;
       particle.tilt = Math.sin(particle.tiltAngle - i / 3) * 15;
-
+      //eslint-disable-next-line
       if (particle.y <= H) remainingFlakes++;
 
       // If a confetti has fluttered out of view,
