@@ -47,16 +47,19 @@ function App() {
       <h1>Bingo</h1>
       <div id="wrapper" className="wrapper">
         {Object.keys(data).map((id, index) => (
-          <Tile
-            index={index}
-            key={id}
-            id={"tile"}
-            isSet={!!state?.checked[id]}
-            onToggle={() => toggle(id)}
-            isWon={state?.won}
-          >
-            {data[id]}
-          </Tile>
+          <>
+            <Tile
+              isCenter={Math.ceil(bbb?.length / 2) === index + 1}
+              index={index}
+              key={id}
+              id={"tile"}
+              isSet={!!state?.checked[id]}
+              onToggle={() => toggle(id)}
+              isWon={state?.won}
+            >
+              {data[id]}
+            </Tile>
+          </>
         ))}
       </div>
       {state?.won ? <Confetti /> : null}

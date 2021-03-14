@@ -8,16 +8,17 @@ interface TileProps {
   isSet: boolean;
   isWon: boolean;
   index?: number;
+  isCenter: boolean;
 }
-function Tile({ id, children, onToggle, isSet, isWon }: TileProps) {
+function Tile({ id, children, onToggle, isSet, isWon, isCenter }: TileProps) {
   return (
     <motion.div
       id={id}
       animate={{ scale: isWon ? 0 : 1 }}
-      onClick={onToggle}
-      className={`tile ${isSet ? "tile--set" : ""}`}
+      onClick={isCenter ? null : onToggle}
+      className={`tile ${isCenter ? "tile--center" : isSet ? "tile--set" : ""}`}
     >
-      {children}
+      {isCenter ? "Sensory😻" : children}
     </motion.div>
   );
 }
