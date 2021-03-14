@@ -25,10 +25,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn install
-    - name: run project
-      run: yarn start
-    - name: Run the tests
-      run: yarn run test
     - name: Build
       run: yarn build
     - name: deploy-netlify
