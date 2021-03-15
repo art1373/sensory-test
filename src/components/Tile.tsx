@@ -11,12 +11,18 @@ interface TileProps {
   isCenter: boolean;
 }
 function Tile({ id, children, onToggle, isSet, isWon, isCenter }: TileProps) {
+  React.useEffect(() => {
+    if (isCenter) {
+      onToggle(id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCenter]);
   return (
     <motion.div
       id={id}
       animate={{ scale: isWon ? 0 : 1 }}
       onClick={isCenter ? null : onToggle}
-      className={`tile ${isCenter ? "tile--center" : isSet ? "tile--set" : ""}`}
+      className={`tile ${isCenter || isSet ? "tile--set" : ""}`}
     >
       {isCenter ? "Sensory😻" : children}
     </motion.div>
